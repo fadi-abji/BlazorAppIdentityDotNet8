@@ -1,0 +1,28 @@
+﻿@inject NavigationManager NavigationManager
+
+@code {
+    protected override void OnInitialized()
+    {
+        NavigationManager.NavigateTo($"Account/Login?returnUrl={Uri.EscapeDataString($"~/{NavigationManager.ToBaseRelativePath(NavigationManager.Uri)}")}", true);
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        try
+        {
+            string navigateTo = "/login";
+            if (!NavigationManager.ToBaseRelativePath(NavigationManager.Uri).IsNullOrEmpty())
+            {
+                navigateTo += "?returnUrl=" + Uri.EscapeDataString($"~/{NavigationManager.ToBaseRelativePath(NavigationManager.Uri)}");
+            }
+
+            NavigationManager.NavigateTo(navigateTo, true);
+        }
+        catch (Exception ex)
+        {
+            //Logger.LogError(ex, ex.Message);
+        }
+        base.OnAfterRender(firstRender);
+    }
+}
+

@@ -1,0 +1,14 @@
+﻿@using BlazorWebApp.Identity
+@using Microsoft.AspNetCore.Components.Authorization
+@inherits LayoutComponentBase
+
+    <AuthorizeView>
+            <Authorized>
+                <SetUserInfo>
+                    @Body
+                </SetUserInfo>
+            </Authorized>
+            <NotAuthorized>
+                <RedirectToLogin></RedirectToLogin>
+            </NotAuthorized>
+    </AuthorizeView>
