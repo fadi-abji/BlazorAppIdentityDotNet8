@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAppIdentityDotNet8", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAppIdentityDotNet8.Client", "BlazorAppIdentityDotNet8\BlazorAppIdentityDotNet8.Client\BlazorAppIdentityDotNet8.Client.csproj", "{7BF10056-BD0C-4B3B-BA2A-B6BFD9BE0FD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebApp", "BlazorWebApp\BlazorWebApp.csproj", "{5A712B82-FD04-4D0B-ADC8-028EF62C866A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWebApp", "BlazorWebApp\BlazorWebApp.csproj", "{5A712B82-FD04-4D0B-ADC8-028EF62C866A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

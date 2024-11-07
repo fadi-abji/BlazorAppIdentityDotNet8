@@ -1,0 +1,100 @@
+﻿@using System.Globalization
+@using Microsoft.AspNetCore.Localization
+
+@namespace BlazorWebApp.Shared
+@addTagHelper *, WebOptimizer.Core
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment webHostEnvironment
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        <div class="login-page">
+            <div class="login-wrapper">
+                <component type="typeof(LogoContainer)" param-CssClass=@("login-logo") param-ImgUrl=@("/assets/img/logo.jpg") param-ImgAlt=@("Company name") render-mode="Static" />
+                @RenderBody()
+            </div>
+            <component type="typeof(LoginLogo)" render-mode="Static" />
+        </div>
+    </div>
+</body>
+</html>
+
+
+ @* @using System.Globalization
+@using Microsoft.AspNetCore.Localization
+
+@namespace KSL.Website.Pages.Shared
+@addTagHelper *, WebOptimizer.Core
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@using Wengine.Components.Base;
+@using Wengine.Components.Core.Error;
+@using Wengine.Components.Core.Html
+@using Wengine.Components.Core.Header
+@using KSL.Website.Helpers
+@using Wengine.Components.Core.Design
+@using Wengine.Components.Core;
+@using Wengine.WebGui.Structures.Layout.Components
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment webHostEnvironment
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="@System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName">
+<head>
+    <component type="typeof(WngPageHeaderContent)" param-Title="@ViewData["Title"]" render-mode="Static" />
+</head>
+<body>
+    @{
+        this.Context.Response.Cookies.Append(
+        CookieRequestCultureProvider.DefaultCookieName,
+        CookieRequestCultureProvider.MakeCookieValue(
+        new RequestCulture(
+        CultureInfo.CurrentCulture,
+        CultureInfo.CurrentUICulture)));
+    }
+    @if (this.Model is IPageWithBlazor)
+    {
+        <component type="typeof(WxrPageLoader)" param-SyncWithAppData="true" param-DefaultMessage=@("") render-mode="ServerPrerendered" />
+    }
+
+    <div class="login-page">
+        <div class="login-wrapper">
+            <component type="typeof(WxrLogoContainer)" param-CssClass=@("login-logo") param-ImgUrl=@("/assets/img/ksl-logo-215.jpg") param-ImgAlt=@("KSL Trading AB") render-mode="Static" />
+            @RenderBody()
+        </div>
+        <component type="typeof(WxrLoginWexerLogo)" render-mode="Static" />
+    </div>
+
+    @if (this.Model is IPageWithBlazor)
+    {
+        <div class="fixed-bottom">
+            <component type="typeof(WxrAppMessages)" param-SyncWithAppData="true" render-mode="ServerPrerendered" />
+        </div>
+    }
+
+    <script src="~/Identity/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/Identity/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Identity/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+    @if (this.Model is IPageWithBlazor)
+    {
+        <component type="typeof(WngBlazorBodyContent)" render-mode="Static" />
+    }
+</body>
+</html>
+ *@

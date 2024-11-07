@@ -1,6 +1,7 @@
 using BlazorWebApp.Components;
 using BlazorWebApp.Identity;
 using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace BlazorWebApp
 {
@@ -18,6 +19,10 @@ namespace BlazorWebApp
             builder.Services.AddCascadingAuthenticationState();
             builder.Services.AddScoped<AuthenticationStateProvider, PersistentAuthenticationStateProvider>();
 
+            builder.Services.Configure<IdentityOptions>(options =>
+            {
+                options.SignIn.RequireConfirmedAccount = false;
+            });
 
             var app = builder.Build();
 

@@ -1,0 +1,17 @@
+﻿<!-- LogoContainer.razor -->
+@namespace BlazorWebApp.Shared
+
+<div class="@CssClass">
+    <img src="@ImgUrl" alt="@ImgAlt" />
+</div>
+
+@code {
+    [Parameter]
+    public string CssClass { get; set; }
+
+    [Parameter]
+    public string ImgUrl { get; set; }
+
+    [Parameter]
+    public string ImgAlt { get; set; }
+}
