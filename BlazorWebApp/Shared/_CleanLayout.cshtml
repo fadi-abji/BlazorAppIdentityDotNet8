@@ -1,0 +1,86 @@
+﻿@namespace BlazorWebApp.Shared
+@using BlazorWebApp.Shared
+@* @using Components.Core.Html
+@using Components.Core.Design
+@using WebGui.Structures.Layout.Components *@
+@addTagHelper *, WebOptimizer.Core
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="@System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName">
+<head>
+    <base href="/" />
+    <title>Wexer Wengine</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ @*    <link rel="apple-touch-icon" sizes="180x180" href="@Icons.AppleTouchIcon">
+    <link rel="icon" type="image/png" sizes="32x32" href="@Icons.Favicon32x32">
+    <link rel="icon" type="image/png" sizes="16x16" href="@Icons.Favicon16x16"> 
+    <link rel="mask-icon" href="@Icons.SafariPinnedTab" color="#5bbad5">*@
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Meta -->
+    <meta name="description" content="Application Dashboard.">
+    <meta name="author" content="Wexer AB">
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="/css/wengine-bundle.css" />
+
+    <script src="_content/Wengine.Components.Core/js/jquery/jquery.min.js"></script>
+    <script src="_content/Wengine.Components.Core/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="_content/Wengine.Components.Core/lib/bootstrap-slider/bootstrap-slider.min.js"></script>
+    <script src="_content/telerik.ui.for.blazor/js/telerik-blazor.js"></script>
+    @* <script src="_content/BlazorInputFile/inputfile.js"></script> *@
+    <script src="_content/Wengine.Components.Core/js/wxr-bracket.js"></script>
+    <script src="_content/Wengine.Components.Core/js/wxr-app.js"></script>
+
+
+</head>
+<body style="padding-top: 91px;">
+
+    @* @(await Html.RenderComponentAsync<WxrMenulessHeader>(RenderMode.Server)) *@
+    <div class="body-content">
+        <div class="container-fluid">
+            <div class="main-content">
+                @RenderBody()
+            </div>
+            @* @(await Html.RenderComponentAsync<WxrFooter>(RenderMode.Server)) *@
+        </div>
+    </div>
+
+
+
+    <div class="fixed-bottom">
+        @* @(await Html.RenderComponentAsync<WxrAppMessages>(RenderMode.Server, new { SyncWithAppData = true })) *@
+    </div>
+
+    <div id="blazor-error-ui">
+        <environment include="Staging,Production">
+            An error has occurred. This application may no longer respond until reloaded.
+        </environment>
+        <environment include="Development">
+            An unhandled exception has occurred. See browser dev tools for details.
+        </environment>
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+
+    <script src="_framework/blazor.server.js"></script>
+    <script>
+        let pointName
+        var url = new URL(window.location);
+        var c = url.searchParams.get("type");
+        //console.log(c);
+
+        function showLink(elementName) {
+            var x = document.getElementById(elementName);
+            x.style.display = "block";
+        }
+    </script>
+</body>
+</html>
